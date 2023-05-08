@@ -1,0 +1,27 @@
+image: docker:latest
+
+services:
+  - docker:dind
+
+stages:
+  - build
+  - test
+
+build:
+  stage: build
+  script:
+    - docker build -t my_service:latest .
+    - docker save my_service:latest -o my_service.tar
+  artifacts:
+    paths:
+      - my_service.tar
+
+test:
+  stage: test
+  script:
+    - docker load -i my_service.tar
+    - docker run -d --name my_service_container -p 8000:8000 my_service:latest
+    - docker ps | grep my_service_container
+    # Adicione comandos para executar testes no seu projeto, se necessário
+    - docker stop my_service_container
+    - docker rm my_service_container

@@ -1,0 +1,13 @@
+version: '3.9'
+
+services:
+  my_service:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: my_service:latest
+    container_name: my_service_container
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/service

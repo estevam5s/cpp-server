@@ -1,0 +1,23 @@
+{
+  "name": "my_project",
+  "version": "1.0.0",
+  "description": "A brief description of your project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/your_username/your_repository.git"
+  },
+  "keywords": [
+    "example",
+    "project"
+  ],
+  "author": "Your Name <your.email@example.com>",
+  "license": "ISC",
+  "dependencies": {
+  },
+  "devDependencies": {
+  }
+}
